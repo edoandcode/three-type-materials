@@ -2,7 +2,7 @@
 
 Useful classes to render typography in webgl using three.js and its build-in materials.
 
-![three-type-materials](https://raw.githubusercontent.com/edoandcode/three-type-materials/main/typeMat.jpg)  
+![three-type-materials](https://raw.githubusercontent.com/edoandcode/three-type-materials/main/src/images/typeMat.jpg)  
 
 
 ### What it is? ###
