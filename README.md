@@ -245,7 +245,7 @@ Available options for this class are:
 
 
 
-### TOON TYPE ###
+### NORMAL TYPE ###
 
 This class is used to create an instance of THREE.MeshNormalMaterial class.  
 Available options for this class are:
