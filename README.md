@@ -102,7 +102,7 @@ In order to get the material with typography we have to create a new instance of
 ```javascript
    {  
       uTime: 0,  // a float animated value to perform animation
-      uTimeXY: new THREE.Vector2(1,0)],  // an instance of THREE.Vector2. Is used to multiply the uTime uniform and adjust the animation in the x and y axis. Default is new THREE.Vector2(1,1)
+      uTimeXY: new THREE.Vector2(1,0)],  // an instance of THREE.Vector2. Is used to multiply the uTime uniform and adjust the animation in the x and y axis. Default is new THREE.Vector2(1,0)
       uRepeat: new THREE.Vector3(1,1),  // an instance of THREE.Vector2. Is used to define how many times the texture will be repeated in x and y axies. Default is new THREE.Vector2(1,1)
    }
 ```
@@ -120,7 +120,7 @@ In order to get the material with typography we have to create a new instance of
 The most useful method common to all the classes is the `getMaterial` method which is the one that return the material instance class, anyway there are other methods internally used by this one. (view the code for details):  
 
 
-`getMaterial(materialOptions[plain js object]): [Promise]`  -->  this method return a Promise which it resolve with the instance of three.js material. The textures with the typography are applied on it according to the settings defined in the Type class instance. The materialOptions is an optional parameter to define propreties to apply to the material, all the options accepted by the three.js material are valid options.
+`getMaterial(materialOptions[plain js object]): [Promise]`  -->  this method return a Promise which it resolve with the instance of three.js material. The textures with the typography are applied on it according to the settings defined in the Type class instance. The materialOptions is an optional parameter defines properties which will be applied to the material, all the options accepted by the three.js material are valid options.
 
 
 ### BASIC TYPE ###
@@ -130,8 +130,8 @@ Available options for this class are:
 
 `useMap: [boolean]`  -->  defines if the texture generated is appliead to the map property of the material. The looks of the text is defined by the options passed at class instancing time. Default is true.  
 
-`useAlphaMap: [boolean]` --> defines if the texture generated is applied to alphaMap property, in that case the text is used to alter the opacity of the material. Default is false. See the official three.js documentation for details on how to properly use the alphaMap property.   
-`alphaSpace: [String]` --> accepted value are 'inner' or 'outer'. If 'inner' is setted the opacity is applied to the body of the text; otherwise if 'outer' is setted the background is affected and the text will be fully opaque.   
+`useAlphaMap: [boolean]` --> defines if the texture generated is applied to alphaMap property, in that case the text is used to alter the opacity of the material. Default is false. See the official three.js documentation for details on how to properly use alphaMap.   
+`alphaSpace: [String]` --> accepted value are `'inner'` or `'outer'`. If 'inner' is setted the opacity is applied to the body of the text; otherwise if 'outer' is setted the background is affected and the text will be fully opaque.   
 `alphaIntensity: [float value]` --> value between 0 and 1. Determines how much the alphaMap affect the material transparency.
 
 ### LAMBERT TYPE ###
@@ -142,7 +142,7 @@ Available options for this class are:
 `useMap: [boolean]`  -->  defines if the texture generated is appliead to the map property of the material. The looks of the text is defined by the options passed at class instancing time. Default is true.  
 
 `useAlphaMap: [boolean]` --> defines if the texture generated is applied to alphaMap property, in that case the text is used to alter the opacity of the material. Default is false. See the official three.js documentation for details on how to properly use alphaMap.   
-`alphaSpace: [String]` --> accepted value are 'inner' or 'outer'. If 'inner' is setted the opacity is applied to the body of the text; otherwise if 'outer' is setted the background is affected and the text will be fully opaque.   
+`alphaSpace: [String]` --> accepted value are `'inner'` or `'outer'`. If 'inner' is setted the opacity is applied to the body of the text; otherwise if 'outer' is setted the background is affected and the text will be fully opaque.   
 `alphaIntensity: [float value]` --> value between 0 and 1. Determines how much the alphaMap affect the material transparency.  
 
 `useEmissiveMap: [boolean]` --> defines if the texture generated is applied to emissiveMap property, in that case the text is used to alter the emissive color of the materials. Default is false. See the official three.js documentation for details on how to properly use emissiveMap.   
@@ -162,19 +162,19 @@ Available options for this class are:
 
 `useMap: [boolean]`  -->  defines if the texture generated is appliead to the map property of the material. The looks of the text is defined by the options passed at class instancing time. Default is true.  
 
-`useAlphaMap: [boolean]` --> defines if the texture generated is applied to alphaMap property, in that case the text is used to alter the opacity of the material. Default is false. See the official three.js documentation for details on how to properly use the alphaMap property.   
-`alphaSpace: [String]` --> accepted value are 'inner' or 'outer'. If 'inner' is setted the opacity is applied to the body of the text; otherwise if 'outer' is setted the background is affected and the text will be fully opaque.   
+`useAlphaMap: [boolean]` --> defines if the texture generated is applied to alphaMap property, in that case the text is used to alter the opacity of the material. Default is false. See the official three.js documentation for details on how to properly use alphaMap.   
+`alphaSpace: [String]` --> accepted value are `'inner'` or `'outer'`. If 'inner' is setted the opacity is applied to the body of the text; otherwise if 'outer' is setted the background is affected and the text will be fully opaque.   
 `alphaIntensity: [float value]` --> value between 0 and 1. Determines how much the alphaMap affect the material transparency.  
 
-`useBumpMap: [boolean]` --> defines if the texture generated is applied to bumpMap property. Default is false. See the official three.js documentation for details on how to properly use the bumpMap property.   
-`bumpSpace: [string]` --> accepted value are 'inner' or 'outer'. If 'inner' is setted the text seems to bump down from the surface, otherwise if 'outer' is setted the text seems to bump up.  
-`bumpIntensity: [float]` --> accepted value are 'inner' or 'outer'. If 'inner' is setted the text bump down from the surface, otherwise if 'outer' is setted the text bump up. Also take a look the bumpScale property of the three.js material in the official documentation.  
+`useBumpMap: [boolean]` --> defines if the texture generated is applied to bumpMap property. Default is false. See the official three.js documentation for details on how to properly use bumpMap.   
+`bumpSpace: [string]` --> accepted value are `'inner'` or `'outer'`. If 'inner' is setted the text seems to bump down from the surface, otherwise if 'outer' is setted the text seems to bump up.  
+`bumpIntensity: [float]` --> value between 0 and 1. Determines how much the bumpMap affect the material. Also take a look at the bumpScale property of the three.js material in the official documentation.  
 
-`useDisplacementMap: [boolean]` --> defines if the texture generated is applied to displacementMap property. Default is false. In order to get an acceptable results the geometry must have large number of segments. See the official three.js documentation for details on how to properly use the displacementMap property.  
-`displacementSpace: [string]` --> accepted value are 'inner' or 'outer'. If 'inner' is setted the text is used to dispace the vertices of the geometry innerward the surface; otherwise if 'outer' is setted the vertices ara displaced outwards.  
+`useDisplacementMap: [boolean]` --> defines if the texture generated is applied to displacementMap property. Default is false. In order to get an acceptable results the geometry must have large number of segments. See the official three.js documentation for details on how to properly use displacementMap property.  
+`displacementSpace: [string]` --> accepted value are `'inner'` or `'outer'`. If 'inner' is setted the text is used to displace the vertices of the geometry innerward the surface; otherwise if 'outer' is setted the vertices ara displaced outwards.  
 `displacementIntesity: [float]` --> a value between 0 and 1. Define how much the texture affect the displacementMap. Also view the displacementScale property of the three.js material in the official documentation.  
 
-`useEmissiveMap: [boolean]` --> defines if the texture generated is applied to emissiveMap property, in that case the text is used to alter the emissive color of the materials. Default is false. See the official three.js documentation for details on how to properly use the emissiveMap property.    
+`useEmissiveMap: [boolean]` --> defines if the texture generated is applied to emissiveMap property, in that case the text is used to alter the emissive color of the materials. Default is false. See the official three.js documentation for details on how to properly use emissiveMap.    
 `emissiveColor: [CSS color value]` --> a valid CSS color value or an instance of THREE.Color. Is used to define which is the color emitted by the body of the text.  
 `emissiveBackground: [CSS color value]` --> a valid CSS color value or an instance of THREE.Color. Is used to define which is the color emitted by the background of the text.  
 
@@ -192,28 +192,28 @@ Available options for this class are:
 
 `useMap: [boolean]`  -->  defines if the texture generated is appliead to the map property of the material. The looks of the text is defined by the options passed at class instancing time. Default is true.  
 
-`useAlphaMap: [boolean]` --> defines if the texture generated is applied to alphaMap property, in that case the text is used to alter the opacity of the material. Default is false. See the official three.js documentation for details on how to properly use the alphaMap property.   
-`alphaSpace: [String]` --> accepted value are 'inner' or 'outer'. If 'inner' is setted the opacity is applied to the body of the text; otherwise if 'outer' is setted the background is affected and the text will be fully opaque.   
+`useAlphaMap: [boolean]` --> defines if the texture generated is applied to alphaMap property, in that case the text is used to alter the opacity of the material. Default is false. See the official three.js documentation for details on how to properly use alphaMap.   
+`alphaSpace: [String]` --> accepted value are `'inner'` or `'outer'`. If 'inner' is setted the opacity is applied to the body of the text; otherwise if 'outer' is setted the background is affected and the text will be fully opaque.   
 `alphaIntensity: [float value]` --> value between 0 and 1. Determines how much the alphaMap affect the material transparency.  
 
-`useBumpMap: [boolean]` --> defines if the texture generated is applied to bumpMap property. Default is false. See the official three.js documentation for details on how to properly use the bumpMap property.   
-`bumpSpace: [string]` --> accepted value are 'inner' or 'outer'. If 'inner' is setted the text seems to bump down from the surface, otherwise if 'outer' is setted the text seems to bump up.  
-`bumpIntensity: [float]` --> accepted value are 'inner' or 'outer'. If 'inner' is setted the text bump down from the surface, otherwise if 'outer' is setted the text bump up. Also take a look the bumpScale property of the three.js material in the official documentation.  
+`useBumpMap: [boolean]` --> defines if the texture generated is applied to bumpMap property. Default is false. See the official three.js documentation for details on how to properly use bumpMap.   
+`bumpSpace: [string]` --> accepted value are `'inner'` or `'outer'`. If 'inner' is setted the text seems to bump down from the surface, otherwise if 'outer' is setted the text seems to bump up.  
+`bumpIntensity: [float]` --> value between 0 and 1. Determines how much the bumpMap affect the material. Also take a look at the bumpScale property of the three.js material in the official documentation.  
 
-`useDisplacementMap: [boolean]` --> defines if the texture generated is applied to displacementMap property. Default is false. In order to get an acceptable results the geometry must have large number of segments. See the official three.js documentation for details on how to properly use the displacementMap property.  
-`displacementSpace: [string]` --> accepted value are 'inner' or 'outer'. If 'inner' is setted the text is used to dispace the vertices of the geometry innerward the surface; otherwise if 'outer' is setted the vertices ara displaced outwards.  
+`useDisplacementMap: [boolean]` --> defines if the texture generated is applied to displacementMap property. Default is false. In order to get an acceptable results the geometry must have large number of segments. See the official three.js documentation for details on how to properly use displacementMap.  
+`displacementSpace: [string]` --> accepted value are `'inner'` or `'outer'`. If 'inner' is setted the text is used to displace the vertices of the geometry innerward the surface; otherwise if 'outer' is setted the vertices ara displaced outwards.  
 `displacementIntesity: [float]` --> a value between 0 and 1. Define how much the texture affect the displacementMap. Also view the displacementScale property of the three.js material in the official documentation.  
 
-`useEmissiveMap: [boolean]` --> defines if the texture generated is applied to emissiveMap property, in that case the text is used to alter the emissive color of the materials. Default is false. See the official three.js documentation for details on how to properly use the emissiveMap property.    
+`useEmissiveMap: [boolean]` --> defines if the texture generated is applied to emissiveMap property, in that case the text is used to alter the emissive color of the materials. Default is false. See the official three.js documentation for details on how to properly use emissiveMap.    
 `emissiveColor: [CSS color value]` --> a valid CSS color value or an instance of THREE.Color. Is used to define which is the color emitted by the body of the text.  
 `emissiveBackground: [CSS color value]` --> a valid CSS color value or an instance of THREE.Color. Is used to define which is the color emitted by the background of the text.  
 
 `useMetalnessMap: [boolean]` --> defines if the texture generated is used as metalnessMap of the material.  
-`metalnessSpace: [string]` --> accepted value are 'inner' or 'outer'. If 'inner' is setted the texture alter the metalness of the text body; otherwise if 'outer' is setted the background of the text will be altered.  
+`metalnessSpace: [string]` --> accepted value are `'inner'` or `'outer'`. If 'inner' is setted the texture alter the metalness of the text body; otherwise if 'outer' is setted the background of the text will be altered.  
 `metalnessIntensity: [float]` --> a value between 0 and 1. Define how much the generated metalnessMap affect the material. 
 
 `useRoughnessMap: [boolean]` --> defines if the texture generated is used as roughnessMap of the material.  
-`roughnessSpace: [string]` --> accepted value are 'inner' or 'outer'. If 'inner' is setted the texture alter the roughness of the text body; otherwise if 'outer' is setted the background of the text will be altered.  
+`roughnessSpace: [string]` --> accepted value are `'inner'` or `'outer'`. If 'inner' is setted the texture alter the roughness of the text body; otherwise if 'outer' is setted the background of the text will be altered.  
 `roughnessIntensity: [float]` --> a value between 0 and 1. Define how much the generated metalnessMap affect the material. 
 
 ### TOON TYPE ###
@@ -224,19 +224,19 @@ Available options for this class are:
 
 `useMap: [boolean]`  -->  defines if the texture generated is appliead to the map property of the material. The looks of the text is defined by the options passed at class instancing time. Default is true.  
 
-`useAlphaMap: [boolean]` --> defines if the texture generated is applied to alphaMap property, in that case the text is used to alter the opacity of the material. Default is false. See the official three.js documentation for details on how to properly use the alphaMap property.   
-`alphaSpace: [String]` --> accepted value are 'inner' or 'outer'. If 'inner' is setted the opacity is applied to the body of the text; otherwise if 'outer' is setted the background is affected and the text will be fully opaque.   
+`useAlphaMap: [boolean]` --> defines if the texture generated is applied to alphaMap property, in that case the text is used to alter the opacity of the material. Default is false. See the official three.js documentation for details on how to properly use alphaMap.   
+`alphaSpace: [String]` --> accepted value are `'inner'` or `'outer'`. If 'inner' is setted the opacity is applied to the body of the text; otherwise if 'outer' is setted the background is affected and the text will be fully opaque.   
 `alphaIntensity: [float value]` --> value between 0 and 1. Determines how much the alphaMap affect the material transparency.  
 
-`useBumpMap: [boolean]` --> defines if the texture generated is applied to bumpMap property. Default is false. See the official three.js documentation for details on how to properly use the bumpMap property.   
-`bumpSpace: [string]` --> accepted value are 'inner' or 'outer'. If 'inner' is setted the text seems to bump down from the surface, otherwise if 'outer' is setted the text seems to bump up.  
-`bumpIntensity: [float]` --> accepted value are 'inner' or 'outer'. If 'inner' is setted the text bump down from the surface, otherwise if 'outer' is setted the text bump up. Also take a look the bumpScale property of the three.js material in the official documentation.  
+`useBumpMap: [boolean]` --> defines if the texture generated is applied to bumpMap property. Default is false. See the official three.js documentation for details on how to properly use bumpMap.   
+`bumpSpace: [string]` --> accepted value are `'inner'` or `'outer'`. If 'inner' is setted the text seems to bump down from the surface, otherwise if 'outer' is setted the text seems to bump up.  
+`bumpIntensity: [float]` --> value between 0 and 1. Determines how much the bumpMap affect the material. Also take a look at the bumpScale property of the three.js material in the official documentation.  
 
-`useDisplacementMap: [boolean]` --> defines if the texture generated is applied to displacementMap property. Default is false. In order to get an acceptable results the geometry must have large number of segments. See the official three.js documentation for details on how to properly use the displacementMap property.  
-`displacementSpace: [string]` --> accepted value are 'inner' or 'outer'. If 'inner' is setted the text is used to dispace the vertices of the geometry innerward the surface; otherwise if 'outer' is setted the vertices ara displaced outwards.  
+`useDisplacementMap: [boolean]` --> defines if the texture generated is applied to displacementMap property. Default is false. In order to get an acceptable results the geometry must have large number of segments. See the official three.js documentation for details on how to properly use displacementMap.  
+`displacementSpace: [string]` --> accepted value are 'inner' or 'outer'. If 'inner' is setted the text is used to displace the vertices of the geometry innerward the surface; otherwise if 'outer' is setted the vertices ara displaced outwards.  
 `displacementIntesity: [float]` --> a value between 0 and 1. Define how much the texture affect the displacementMap. Also view the displacementScale property of the three.js material in the official documentation.  
 
-`useEmissiveMap: [boolean]` --> defines if the texture generated is applied to emissiveMap property, in that case the text is used to alter the emissive color of the materials. Default is false. See the official three.js documentation for details on how to properly use the emissiveMap property.    
+`useEmissiveMap: [boolean]` --> defines if the texture generated is applied to emissiveMap property, in that case the text is used to alter the emissive color of the materials. Default is false. See the official three.js documentation for details on how to properly use emissiveMap.    
 `emissiveColor: [CSS color value]` --> a valid CSS color value or an instance of THREE.Color. Is used to define which is the color emitted by the body of the text.  
 `emissiveBackground: [CSS color value]` --> a valid CSS color value or an instance of THREE.Color. Is used to define which is the color emitted by the background of the text.  
 
@@ -247,11 +247,11 @@ Available options for this class are:
 This class is used to create an instance of THREE.MeshNormalMaterial class.  
 Available options for this class are:
 
-`useBumpMap: [boolean]` --> defines if the texture generated is applied to bumpMap property. Default is false. See the official three.js documentation for details on how to properly use the bumpMap property.   
-`bumpSpace: [string]` --> accepted value are 'inner' or 'outer'. If 'inner' is setted the text seems to bump down from the surface, otherwise if 'outer' is setted the text seems to bump up.  
-`bumpIntensity: [float]` --> accepted value are 'inner' or 'outer'. If 'inner' is setted the text bump down from the surface, otherwise if 'outer' is setted the text bump up. Also take a look the bumpScale property of the three.js material in the official documentation.  
+`useBumpMap: [boolean]` --> defines if the texture generated is applied to bumpMap property. Default is false. See the official three.js documentation for details on how to properly use bumpMap property.   
+`bumpSpace: [string]` --> accepted value are `'inner'` or `'outer'`. If 'inner' is setted the text seems to bump down from the surface, otherwise if 'outer' is setted the text seems to bump up.  
+`bumpIntensity: [float]` --> value between 0 and 1. Determines how much the bumpMap affect the material. Also take a look at the bumpScale property of the three.js material in the official documentation.  
 
-`useDisplacementMap: [boolean]` --> defines if the texture generated is applied to displacementMap property. Default is false. In order to get an acceptable results the geometry must have large number of segments. See the official three.js documentation for details on how to properly use the displacementMap property.  
-`displacementSpace: [string]` --> accepted value are 'inner' or 'outer'. If 'inner' is setted the text is used to dispace the vertices of the geometry innerward the surface; otherwise if 'outer' is setted the vertices ara displaced outwards.  
+`useDisplacementMap: [boolean]` --> defines if the texture generated is applied to displacementMap property. Default is false. In order to get an acceptable results the geometry must have large number of segments. See the official three.js documentation for details on how to properly use displacementMap.  
+`displacementSpace: [string]` --> accepted value are 'inner' or 'outer'. If 'inner' is setted the text is used to displace the vertices of the geometry innerward the surface; otherwise if 'outer' is setted the vertices ara displaced outwards.  
 `displacementIntesity: [float]` --> a value between 0 and 1. Define how much the texture affect the displacementMap. Also take a look the displacementScale property of the three.js material in the official documentation.  
 
