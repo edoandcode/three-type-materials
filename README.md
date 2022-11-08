@@ -38,8 +38,6 @@ const MyScene = new function(){
 
     this.create = async () => {
 
-        this.typeMaterials = [];
-
         const fontSetting = {
             fnt: 'fonts/Montserrat-black.fnt',
             png: 'fonts/Montserrat-black.png',
