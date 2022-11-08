@@ -6,7 +6,7 @@ Useful classes to render typography in webgl using three.js and its build-in mat
 
 
 ### What it is? ###
-These are six classes to easily menage typography in webgl scenes. The geometry of the text is created with [three-bmfont-text](https://github.com/Jam3/three-bmfont-text) and it is added to a WebGLRenderTarget to create the texture used as maps in the three.js materials. Different classes handles different materials. Available materials are: MeshBasicMaterial, MeshLamberMaterial, MeshPhongMaterial, MeshNormalMaterial, MeshStandardMaterial, MeshToonMaterial. 
+These are six classes to easily manage typography in webgl scenes. The geometry of the text is created with [three-bmfont-text](https://github.com/Jam3/three-bmfont-text) and it is added to a WebGLRenderTarget to create the texture used as maps in the three.js materials. Different classes handles different materials. Available materials are: MeshBasicMaterial, MeshLamberMaterial, MeshPhongMaterial, MeshNormalMaterial, MeshStandardMaterial, MeshToonMaterial. 
 It allow to take control of almost all the maps which can be applied to the materials, such as map, alphaMap, specularMap, bumpMap, metalnessMap... and others, if the material supports them.
 
 ## How use it? ##
